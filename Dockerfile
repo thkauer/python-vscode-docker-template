@@ -1,15 +1,18 @@
-FROM python:VERSION
-RUN apt-get update
+FROM python:3.12
 
 ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
 
+RUN apt-get update
+
+# create container user
+RUN groupadd -r $USERNAME && useradd -r -m -g $USERNAME $USERNAME
+WORKDIR /home/$USERNAME
+
+# install requirements
 COPY ./requirements.txt /docker/requirements.txt
-
 RUN pip install -r /docker/requirements.txt
 
-RUN groupadd --gid ${USER_GID} ${USERNAME} \
-    && useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME}
+# Copy application code
+COPY . .
 
-USER ${USERNAME}
+USER $USERNAME
