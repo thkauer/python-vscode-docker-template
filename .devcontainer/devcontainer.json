@@ -16,10 +16,23 @@
 				"ms-python.black-formatter",
 				"njpwerner.autodocstring",
 				"streetsidesoftware.code-spell-checker"
-				// "github.copilot"
 			],
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash"
+				"python.languageServer": "Pylance",
+				"python.analysis.typeCheckingMode": "strict",
+				"python.analysis.diagnosticMode": "workspace",
+				"pylint.args": [
+					"--max-line-length=88"
+				],
+				"[python]": {
+					"editor.formatOnSave": true,
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "explicit"
+					}
+				},
+				"autoDocstring.docstringFormat": "numpy",
+				"cSpell.language": "en"
 			}
 		}
 	}
