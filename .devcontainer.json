@@ -2,8 +2,8 @@
 {
 	"name": "NAME",
 	"build": {
-		"context": "..",
-		"dockerfile": "../Dockerfile"
+		"context": ".",
+		"dockerfile": "Dockerfile"
 	},
 	"shutdownAction": "stopContainer",
 	"remoteUser": "vscode",
@@ -12,8 +12,7 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.pylint",
-				"ms-python.isort",
-				"ms-python.black-formatter",
+				"charliermarsh.ruff",
 				"njpwerner.autodocstring",
 				"streetsidesoftware.code-spell-checker"
 			],
@@ -26,9 +25,9 @@
 				],
 				"[python]": {
 					"editor.formatOnSave": true,
-					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.defaultFormatter": "charliermarsh.ruff",
 					"editor.codeActionsOnSave": {
-						"source.organizeImports": "explicit"
+						"source.organizeImports.ruff": "explicit"
 					}
 				},
 				"autoDocstring.docstringFormat": "numpy",
