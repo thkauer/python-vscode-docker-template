@@ -11,7 +11,7 @@ USER $USERNAME
 
 # install requirements
 COPY ./requirements.txt /docker/requirements.txt
-RUN pip install -r /docker/requirements.txt
+RUN pip install --no-cache-dir -r /docker/requirements.txt 
 
 # Copy application code
 COPY . .
